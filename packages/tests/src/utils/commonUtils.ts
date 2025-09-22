@@ -90,7 +90,6 @@ export async function execAsyncWithRetry(
         options.cwd ? options.cwd : "",
         options.env
       );
-      console.log("result:", result)
       return result;
     } catch (e: any) {
       console.log(
