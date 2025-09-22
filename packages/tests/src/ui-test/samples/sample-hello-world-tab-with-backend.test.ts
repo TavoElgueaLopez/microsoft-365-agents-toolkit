@@ -6,6 +6,7 @@
  */
 
 import fs from "fs-extra";
+import os from "os";
 import path from "path";
 import { Page } from "playwright";
 import { TemplateProject, LocalDebugTaskLabel } from "../../utils/constants";
@@ -79,6 +80,7 @@ new HelloWorldTabBackEndTestCase(
   {
     testPlanCaseId_local: 12684063,
     testPlanCaseId_dev: 13523920,
+    testRootFolder: path.resolve(os.homedir(), "resource"),
   }
   //{ debug: "cli" }
 ).test();

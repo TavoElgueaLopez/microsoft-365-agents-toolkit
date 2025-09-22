@@ -36,11 +36,11 @@ const ubuntu_22 = [
   "sample-dice-roller",
   "sample-todo-list-with-spfx",
   "sample-spfx-productivity-dashboard",
-  "sample-react-retail-dashboard",
   "sample-reddit-link",
   "sample-proactive-message",
   // "sample-share-now", //share now sql resource will casue security issue temporarily disabled
 ];
+const ubuntu_18 = ["sample-react-retail-dashboard"];
 
 const sampleRecord: any = {
   [TemplateProjectFolder.HelloWorldTabBackEnd]:
@@ -108,6 +108,15 @@ function main() {
           );
         } catch (error) {
           console.log("there is no ubuntu-latest node-22 in pvt.json", error);
+        }
+      } else if (ubuntu_18.includes(sampleRecord[sample])) {
+        try {
+          pvtData["ubuntu-latest"]["node-18"].push(sampleRecord[sample]);
+          console.log(
+            `add sample ${sampleRecord[sample]} to ubuntu-latest node-18`
+          );
+        } catch (error) {
+          console.log("there is no ubuntu-latest node-18 in pvt.json", error);
         }
       }
     }
