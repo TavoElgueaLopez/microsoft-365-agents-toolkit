@@ -186,7 +186,6 @@ export class CliHelper {
       `npm run build --if-present --verbose`,
       {
         cwd: projectPath,
-        env: processEnv ? processEnv : process.env,
         timeout: 0,
       },
       retries,
@@ -196,7 +195,6 @@ export class CliHelper {
       `atk deploy --env ${env} --interactive false --verbose ${option} --telemetry false`,
       {
         cwd: projectPath,
-        env: processEnv ? processEnv : process.env,
         timeout: 0,
       },
       retries,
