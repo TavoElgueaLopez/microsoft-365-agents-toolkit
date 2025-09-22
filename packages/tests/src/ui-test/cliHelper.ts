@@ -172,6 +172,16 @@ export class CliHelper {
     retries?: number,
     newCommand?: string
   ) {
+    await execAsyncWithRetry(
+      `npm install`,
+      {
+        cwd: projectPath,
+        env: processEnv ? processEnv : process.env,
+        timeout: 0,
+      },
+      retries,
+      newCommand
+    );
     const result = await execAsyncWithRetry(
       `atk deploy --env ${env} --interactive false --verbose ${option} --telemetry false`,
       {
