@@ -48,6 +48,7 @@ export async function execute(
         return { success: true, ...result };
       }
     } catch (e: any) {
+       console.log("result2:", e)
       if (e.killed && e.signal == "SIGTERM") {
         console.error(`[Failed] "${command}" in ${cwd}. Timeout and killed.`);
       } else {
