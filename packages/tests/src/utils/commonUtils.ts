@@ -31,6 +31,7 @@ export async function execute(
         timeout: timeout ?? 0,
       };
       const result = await execAsync(command, options);
+      console.log("result0:", result)
 
       if (result.stderr) {
         if (skipErrorMessage && result.stderr.includes(skipErrorMessage)) {

@@ -182,8 +182,8 @@ export class CliHelper {
       retries,
       newCommand
     );
-    const result2 = await execAsyncWithRetry(
-      `npm run build --if-present`,
+    const result = await execAsyncWithRetry(
+      `npm run build --if-present --verbose`,
       {
         cwd: projectPath,
         env: processEnv ? processEnv : process.env,
@@ -192,7 +192,7 @@ export class CliHelper {
       retries,
       newCommand
     );
-    const result = await execAsyncWithRetry(
+    const result2 = await execAsyncWithRetry(
       `atk deploy --env ${env} --interactive false --verbose ${option} --telemetry false`,
       {
         cwd: projectPath,
