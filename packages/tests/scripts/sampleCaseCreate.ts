@@ -27,7 +27,6 @@ const windows_22 = [
 const ubuntu_22 = [
   "sample-adaptive-card",
   "sample-copilot-connector",
-  "sample-todo-list-sql",
   "sample-large-scale-notification",
   "sample-bot-sso-docker",
   "sample-hello-world-tab-docker",
@@ -41,6 +40,7 @@ const ubuntu_22 = [
   // "sample-share-now", //share now sql resource will casue security issue temporarily disabled
 ];
 const ubuntu_18 = ["sample-react-retail-dashboard"];
+const mac_22 = ["sample-todo-list-sql"];
 
 const sampleRecord: any = {
   [TemplateProjectFolder.HelloWorldTabBackEnd]:
@@ -117,6 +117,15 @@ function main() {
           );
         } catch (error) {
           console.log("there is no ubuntu-latest node-18 in pvt.json", error);
+        }
+      } else if (mac_22.includes(sampleRecord[sample])) {
+        try {
+          pvtData["macos-latest"]["node-22"].push(sampleRecord[sample]);
+          console.log(
+            `add sample ${sampleRecord[sample]} to macos-latest node-22`
+          );
+        } catch (error) {
+          console.log("there is no macos-latest node-22 in pvt.json", error);
         }
       }
     }
